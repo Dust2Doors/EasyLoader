@@ -7,5 +7,5 @@ import java.util.LinkedHashMap;
  */
 
 public class LruCache<T,K> {
-//    private LinkedHashMap<T, K> cache = new LinkedHashMap<>(100, 0.7f, true);
+    private LinkedHashMap<T, K> cache = new LinkedHashMap<>(100, 0.7f, true);
 }
