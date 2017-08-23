@@ -3,7 +3,7 @@ package com.easyloader.zym.library.cache;
 import android.support.annotation.Nullable;
 
 import com.easyloader.zym.library.Key;
-import com.easyloader.zym.library.engine.Resource;
+import com.easyloader.zym.library.Resource;
 
 /**
  * 缓存管理类 顶级父类

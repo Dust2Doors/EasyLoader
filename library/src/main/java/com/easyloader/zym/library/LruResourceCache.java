@@ -1,16 +1,16 @@
-package com.easyloader.zym.library.engine;
+package com.easyloader.zym.library;
 
-import android.support.annotation.Nullable;
-
-import com.easyloader.zym.library.Key;
 import com.easyloader.zym.library.cache.MemoryCache;
-import com.easyloader.zym.library.util.LruCache;
-
 /**
  * 缓存核心类 实现顶级父类的借口 并且继承自HashMap的封装类LruCache
  */
 
 public class LruResourceCache extends LruCache<Key,Resource<?>> implements MemoryCache {
+
+    public LruResourceCache(int size) {
+        super(size);
+    }
+
     @Override
     public int getCurrentSize() {
         return 0;
@@ -19,17 +19,6 @@ public class LruResourceCache extends LruCache<Key,Resource<?>> implements Memor
     @Override
     public void setSizeMulitiplier(float mulitiplier) {
 
-    }
-
-    @Nullable
-    @Override
-    public Resource<?> remove(Key key) {
-        return null;
-    }
-
-    @Override
-    public Resource<?> put(Key key, Resource<?> resource) {
-        return null;
     }
 
     @Override
