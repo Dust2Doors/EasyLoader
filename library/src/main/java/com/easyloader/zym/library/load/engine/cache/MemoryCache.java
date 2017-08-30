@@ -28,5 +28,5 @@ public interface MemoryCache {
 
     void clearMemory();
 
-    void trimMemoroy(int level);
+    void trimMemory(int level);
 }

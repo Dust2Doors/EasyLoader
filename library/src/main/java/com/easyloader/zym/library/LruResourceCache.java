@@ -33,7 +33,7 @@ public class LruResourceCache extends LruCache<Key,Resource<?>> implements Memor
     }
 
     @Override
-    public void trimMemoroy(int level) {
+    public void trimMemory(int level) {
 
     }
 }
