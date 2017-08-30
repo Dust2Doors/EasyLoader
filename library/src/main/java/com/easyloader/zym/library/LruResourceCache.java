@@ -24,7 +24,6 @@ public class LruResourceCache extends LruCache<Key,Resource<?>> implements Memor
 
     @Override
     public void setResourceRemovedListener(ResourceRemovedListener listener) {
-
     }
 
     @Override
