@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.util.Log;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zym on 2017/8/16.
@@ -15,6 +17,7 @@ public class EasyLoader implements ComponentCallbacks2 {
     private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
     private static final String TAG = "EasyLoader";
     private static EasyLoader easyLoader;
+    private final List<RequestManager> managers = new ArrayList<>();
     /**
      * @param context
      * @return
@@ -52,13 +55,25 @@ public class EasyLoader implements ComponentCallbacks2 {
         return easyLoader;
     }
 
+    // requestManager的注册时在Glide中进行
+    void registerRequestManager(RequestManager requestManager) {
+        synchronized (managers) {
+            if (managers.contains(requestManager)) {
+                throw new IllegalStateException("Cannot register already registered manager");
+            }
+            managers.add(requestManager);
+        }
+    }
+
+
     private static EasyLoader initEasyLoader(Context context) {
         return EasyLoaderBuilder.build(context);
     }
 
-
+    private Context context;
     EasyLoader(Context context){
         // many init working and registry resource and type
+        this.context = context;
     }
 
 
@@ -81,5 +96,18 @@ public class EasyLoader implements ComponentCallbacks2 {
     @Override
     public void onLowMemory() {
 
+    }
+
+    public EasyLoaderContext getGlideContext() {
+        return new EasyLoaderContext(context,this);
+    }
+
+    void unregisterRequestManager(RequestManager requestManager) {
+        synchronized (managers) {
+            if (!managers.contains(requestManager)) {
+                throw new IllegalStateException("Cannot register not yet registered manager");
+            }
+            managers.remove(requestManager);
+        }
     }
 }
