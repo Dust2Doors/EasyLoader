@@ -56,15 +56,7 @@ public class RequestManager implements LifecycleListener{
 
     @Override
     public void onDestroy() {
-//        targetTracker.onDestroy();
-//        for (Target<?> target : targetTracker.getAll()) {
-//            clear(target);
-//        }
-//        targetTracker.clear();
-//        requestTracker.clearRequests();
-//        lifecycle.removeListener(this);
-//        lifecycle.removeListener(connectivityMonitor);
-//        mainHandler.removeCallbacks(addSelfToLifecycle);
+        // untracker  调用生命周期方法 实现周期同步
         easyLoader.unregisterRequestManager(this);
     }
     //接口注册从此终止
