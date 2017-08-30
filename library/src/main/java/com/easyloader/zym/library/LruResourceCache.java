@@ -1,6 +1,7 @@
 package com.easyloader.zym.library;
 
-import com.easyloader.zym.library.cache.MemoryCache;
+import com.easyloader.zym.library.load.engine.cache.MemoryCache;
+
 /**
  * 缓存核心类 实现顶级父类的借口 并且继承自HashMap的封装类LruCache
  */
