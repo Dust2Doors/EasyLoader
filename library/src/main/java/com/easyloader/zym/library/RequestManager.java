@@ -59,6 +59,8 @@ public class RequestManager implements LifecycleListener{
         // untracker  调用生命周期方法 实现周期同步
         easyLoader.unregisterRequestManager(this);
     }
+
+
     //接口注册从此终止
     public void onTrimMemory(int level) {
         easyLoader.getGlideContext().onTrimMemory(level);
